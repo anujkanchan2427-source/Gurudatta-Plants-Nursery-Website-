@@ -98,7 +98,7 @@ function makePlantArt(plant) {
         </linearGradient>
       </defs>
       <rect width="800" height="600" fill="url(#bg${plant.name})"/>
-      <ellipse cx="420" cy="470" rx="250" ry="65" fill="rgba(13, 214, 53, 0.12)"/>
+      <ellipse cx="420" cy="470" rx="250" ry="65" fill="rgba(183, 194, 185, 0.12)"/>
       <circle cx="650" cy="120" r="52" fill="#d3ab3d" opacity="0.8"/>
       <path d="M402 456 C332 382, 285 302, 287 228 C290 166, 338 120, 392 120 C457 120, 513 161, 520 231 C527 330, 469 389, 402 456 Z" fill="${leaf}" opacity="0.96"/>
       <path d="M463 182 C500 210, 544 252, 552 314 C517 292, 477 286, 432 290 C416 252, 431 214, 463 182 Z" fill="${dark}" opacity="0.22"/>
