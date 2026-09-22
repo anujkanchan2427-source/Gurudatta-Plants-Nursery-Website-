@@ -229,6 +229,10 @@ function setupNavToggle() {
 
 /* ================= INIT ================= */
 document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("heroPhoto").src = makePlantArt({
+    name: "Gurudatta Nursery",
+    category: "outdoor",
+  });
   document.getElementById("headerWhatsapp").href = whatsappLink();
   document.getElementById("aboutWhatsapp").href = whatsappLink();
   document.getElementById("floatWhatsapp").href = whatsappLink();
