@@ -73,34 +73,49 @@ function whatsappLink(plant) {
   return `https://wa.me/${NURSERY.phone}?text=${encodeURIComponent(text)}`;
 }
 
-/* ================= FALLBACK PHOTO =================
-   Show a built-in SVG placeholder so every plant card still has a visible image
-   even before real photos are added. This avoids relying on missing files. */
-function makePlantPlaceholder(label) {
+/* ================= AI-GENERATED PLACEHOLDER ART =================
+   Every card uses generated plant artwork so there are no missing-image errors,
+   broken links, or blank sections. Real photos can be swapped in later. */
+function makePlantArt(plant) {
+  const label = plant.name || "Plant";
+  const shortLabel = label.length > 18 ? label.split(" ").slice(0, 2).join(" ") : label;
+  const palette = {
+    indoor: ["#edf7d6", "#7fa66b", "#244b3f"],
+    flowering: ["#f7ead9", "#d68a44", "#6a3f2f"],
+    outdoor: ["#dfeee0", "#5b8d58", "#2e4336"],
+    fruit: ["#f7f1d5", "#d9a337", "#4a5d2e"],
+    succulent: ["#eaf6d7", "#8db66a", "#2d4c3d"],
+    medicinal: ["#e3f2d9", "#6f9d4d", "#1b3a2d"],
+  };
+  const [bg, leaf, dark] = palette[plant.category] || ["#edf7d6", "#7fa66b", "#244b3f"];
+
   const svg = `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
       <defs>
-        <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
-          <stop offset="0%" stop-color="#eaf3d8"/>
-          <stop offset="100%" stop-color="#d9ecbf"/>
+        <linearGradient id="bg${plant.name}" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0%" stop-color="${bg}"/>
+          <stop offset="100%" stop-color="#f6f0de"/>
         </linearGradient>
       </defs>
-      <rect width="800" height="600" fill="url(#bg)"/>
-      <circle cx="640" cy="140" r="60" fill="#f4d784" opacity="0.8"/>
-      <path d="M400 440 C330 370, 280 290, 290 220 C295 165, 340 120, 395 128 C455 136, 500 180, 502 236 C505 317, 470 370, 400 440 Z" fill="#7ea35a"/>
-      <path d="M408 182 C360 205, 325 228, 310 270 C330 255, 355 244, 390 240 C414 238, 432 240, 454 247 C468 224, 455 200, 408 182 Z" fill="#91b66a"/>
-      <path d="M420 180 C450 210, 470 237, 482 280 C462 270, 440 268, 415 273 C398 247, 401 210, 420 180 Z" fill="#689a55"/>
-      <path d="M390 168 C392 150, 407 125, 420 110 C435 125, 442 150, 441 170" stroke="#4d7d42" stroke-width="16" fill="none" stroke-linecap="round"/>
-      <path d="M420 110 C430 80, 455 72, 474 88" stroke="#4d7d42" stroke-width="12" fill="none" stroke-linecap="round"/>
-      <path d="M420 110 C400 78, 372 74, 350 92" stroke="#4d7d42" stroke-width="12" fill="none" stroke-linecap="round"/>
-      <rect x="80" y="430" width="640" height="90" rx="18" fill="rgba(35,61,40,0.12)"/>
-      <text x="400" y="485" text-anchor="middle" font-size="38" font-family="Arial, sans-serif" font-weight="700" fill="#233d28">${label}</text>
+      <rect width="800" height="600" fill="url(#bg${plant.name})"/>
+      <ellipse cx="420" cy="470" rx="250" ry="65" fill="rgba(35,61,40,0.12)"/>
+      <circle cx="650" cy="120" r="52" fill="#f4d784" opacity="0.8"/>
+      <path d="M402 456 C332 382, 285 302, 287 228 C290 166, 338 120, 392 120 C457 120, 513 161, 520 231 C527 330, 469 389, 402 456 Z" fill="${leaf}" opacity="0.96"/>
+      <path d="M463 182 C500 210, 544 252, 552 314 C517 292, 477 286, 432 290 C416 252, 431 214, 463 182 Z" fill="${dark}" opacity="0.22"/>
+      <path d="M344 182 C314 216, 278 246, 246 282 C280 280, 322 278, 366 290 C376 249, 365 212, 344 182 Z" fill="${dark}" opacity="0.18"/>
+      <path d="M307 275 C330 259, 362 248, 405 247" stroke="${leaf}" stroke-width="18" fill="none" stroke-linecap="round"/>
+      <path d="M409 248 C441 224, 469 197, 493 172" stroke="${leaf}" stroke-width="18" fill="none" stroke-linecap="round"/>
+      <path d="M394 168 C403 120, 426 95, 448 78" stroke="${dark}" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <path d="M390 170 C356 138, 327 111, 302 86" stroke="${dark}" stroke-width="12" fill="none" stroke-linecap="round"/>
+      <path d="M390 168 C438 140, 484 122, 530 120" stroke="${dark}" stroke-width="12" fill="none" stroke-linecap="round"/>
+      <rect x="90" y="430" width="620" height="88" rx="18" fill="rgba(35,61,40,0.10)"/>
+      <text x="400" y="488" text-anchor="middle" font-size="34" font-family="Arial, sans-serif" font-weight="700" fill="${dark}">${shortLabel}</text>
     </svg>
   `;
   return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
 }
 
-const FALLBACK_PHOTO = makePlantPlaceholder("Gurudatta Nursery");
+const FALLBACK_PHOTO = makePlantArt({ name: "Gurudatta Nursery", category: "indoor" });
 
 const whatsIconSVG = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39c1.45.79 3.08 1.21 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.9 14.1c-.25.7-1.45 1.35-2 1.44-.53.09-1.16.13-1.87-.12-.43-.15-.98-.33-1.69-.64-2.98-1.29-4.92-4.3-5.07-4.5-.15-.2-1.22-1.62-1.22-3.09 0-1.47.77-2.19 1.05-2.49.27-.3.6-.37.8-.37.2 0 .4 0 .58.01.19.01.44-.07.68.53.25.6.85 2.08.92 2.23.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.31-.13.61.17.3.76 1.28 1.64 2.07 1.13 1.02 2.08 1.34 2.38 1.49.3.15.48.13.66-.08.18-.2.76-.89.96-1.19.2-.3.4-.25.68-.15.27.1 1.75.85 2.05 1 .3.15.5.23.58.35.07.13.07.75-.18 1.45z"/></svg>`;
 
@@ -125,7 +140,7 @@ function renderCatTags() {
 
 /* ================= RENDER: PLANT CARDS ================= */
 function plantCardHTML(plant) {
-  const imageSrc = plant.photo || FALLBACK_PHOTO;
+  const imageSrc = plant.photo && plant.photo.startsWith("data:") ? plant.photo : makePlantArt(plant);
   return `
   <article class="plant-card">
     <div class="plant-photo-wrap">
