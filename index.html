@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>गुरुदत्त नर्सरी · Gurudatta Nursery</title>
+<meta name="description" content="Gurudatta Nursery, Kunjirwadi, Taluka Haveli, Pune. Indoor, flowering, fruit, succulent and medicinal plants. Order directly on WhatsApp.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="vine-strip" aria-hidden="true"></div>
+
+<header class="site-header">
+  <a href="#top" class="brand">
+    <span class="brand-mark-mr">गुरुदत्त नर्सरी</span>
+    <span class="brand-mark-en">Gurudatta Nursery</span>
+  </a>
+  <nav class="site-nav" aria-label="Main">
+    <a href="#plants">Plants</a>
+    <a href="#catalog">All Varieties</a>
+    <a href="#about">About</a>
+  </nav>
+  <a class="nav-whatsapp" id="headerWhatsapp" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39c1.45.79 3.08 1.21 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.9 14.1c-.25.7-1.45 1.35-2 1.44-.53.09-1.16.13-1.87-.12-.43-.15-.98-.33-1.69-.64-2.98-1.29-4.92-4.3-5.07-4.5-.15-.2-1.22-1.62-1.22-3.09 0-1.47.77-2.19 1.05-2.49.27-.3.6-.37.8-.37.2 0 .4 0 .58.01.19.01.44-.07.68.53.25.6.85 2.08.92 2.23.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.31-.13.61.17.3.76 1.28 1.64 2.07 1.13 1.02 2.08 1.34 2.38 1.49.3.15.48.13.66-.08.18-.2.76-.89.96-1.19.2-.3.4-.25.68-.15.27.1 1.75.85 2.05 1 .3.15.5.23.58.35.07.13.07.75-.18 1.45z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1 class="hero-mr">गुरुदत्त नर्सरी</h1>
+      <p class="hero-en">Gurudatta Nursery</p>
+      <p class="hero-lede">Grown, potted and cared for in Kunjirwadi. Browse what's in the yard today, and send us the one you want on WhatsApp — no forms, no waiting.</p>
+      <div class="hero-actions">
+        <a href="#plants" class="btn btn-primary">See the plants</a>
+        <a href="#catalog" class="btn btn-ghost">All varieties</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="images/greenhouse.jpg" alt="Potted plants growing inside the Gurudatta Nursery greenhouse" class="hero-photo">
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 1200 30" preserveAspectRatio="none"><path d="M0 15 Q30 0 60 15 T120 15 T180 15 T240 15 T300 15 T360 15 T420 15 T480 15 T540 15 T600 15 T660 15 T720 15 T780 15 T840 15 T900 15 T960 15 T1020 15 T1080 15 T1140 15 T1200 15" stroke="var(--leaf)" stroke-width="2" fill="none" opacity=".5"/></svg>
+  </div>
+
+  <!-- CATEGORY NAV -->
+  <nav class="cat-tags" id="catTags" aria-label="Plant categories"></nav>
+
+  <!-- PLANTS -->
+  <section id="plants" class="plants-section">
+    <div class="section-head">
+      <h2>What's in the yard</h2>
+      <p>Tap any plant to message us on WhatsApp and ask what's currently in stock.</p>
+    </div>
+    <div id="plantGroups"></div>
+  </section>
+
+  <!-- CATALOG -->
+  <section id="catalog" class="catalog-section">
+    <div class="section-head">
+      <h2>Every variety we grow</h2>
+      <p>The full list in one place — search by name or filter by kind, then message us about anything you'd like.</p>
+    </div>
+    <div class="catalog-controls">
+      <input type="search" id="catalogSearch" placeholder="Search a plant name…" aria-label="Search plants">
+      <select id="catalogFilter" aria-label="Filter by category"></select>
+    </div>
+    <div class="catalog-list-wrap">
+      <ul class="catalog-list" id="catalogList"></ul>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about-section">
+    <div class="about-card">
+      <p class="about-eyebrow">About the nursery</p>
+      <h2>Run by Prafull Choudhari</h2>
+      <p class="about-copy">Gurudatta Nursery has been growing indoor, flowering, fruiting and medicinal plants in Kunjirwadi for years. Everything is potted on site — come walk through, or message us on WhatsApp and we'll have it ready.</p>
+      <dl class="about-details">
+        <div><dt>Owner</dt><dd>Prafull Choudhari</dd></div>
+        <div><dt>Phone / WhatsApp</dt><dd><a href="tel:+919657515353">96575 15353</a></dd></div>
+        <div><dt>Hours</dt><dd>Open daily · 8:00 AM – 7:00 PM</dd></div>
+      </dl>
+      <a class="btn btn-primary" id="aboutWhatsapp" href="#" target="_blank" rel="noopener">Message the nursery</a>
+    </div>
+    <div class="about-map">
+      <iframe
+        title="Gurudatta Nursery location map"
+        src="https://www.google.com/maps?q=Mhatobachi+Alandi+Road+Kunjirwadi+Taluka+Haveli+District+Pune&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-brand">
+    <span class="footer-mr">गुरुदत्त नर्सरी</span>
+  </div>
+  <p class="footer-address">Mhatobachi, Alandi Road, Kunjirwadi,<br>Taluka Haveli, District Pune, Maharashtra</p>
+  <p class="footer-phone"><a href="tel:+919657515353">+91 96575 15353</a></p>
+</footer>
+
+<a href="#" id="floatWhatsapp" class="float-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39c1.45.79 3.08 1.21 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.9 14.1c-.25.7-1.45 1.35-2 1.44-.53.09-1.16.13-1.87-.12-.43-.15-.98-.33-1.69-.64-2.98-1.29-4.92-4.3-5.07-4.5-.15-.2-1.22-1.62-1.22-3.09 0-1.47.77-2.19 1.05-2.49.27-.3.6-.37.8-.37.2 0 .4 0 .58.01.19.01.44-.07.68.53.25.6.85 2.08.92 2.23.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.31-.13.61.17.3.76 1.28 1.64 2.07 1.13 1.02 2.08 1.34 2.38 1.49.3.15.48.13.66-.08.18-.2.76-.89.96-1.19.2-.3.4-.25.68-.15.27.1 1.75.85 2.05 1 .3.15.5.23.58.35.07.13.07.75-.18 1.45z"/></svg>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
