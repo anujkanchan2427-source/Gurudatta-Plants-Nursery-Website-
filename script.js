@@ -1,6 +1,6 @@
 /* ================= CONFIG ================= */
 const NURSERY = {
-  name: "Gurudatta Nursery",
+  name: "Shivneri Nursery",
   phone: "919657515353", // country code + number, no + or spaces
 };
 
@@ -108,7 +108,7 @@ function makePlantArt(plant) {
   return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
 }
 
-const FALLBACK_PHOTO = makePlantArt({ name: "Gurudatta Nursery", category: "indoor" });
+const FALLBACK_PHOTO = makePlantArt({ name: "Shivneri Nursery", category: "indoor" });
 
 const whatsIconSVG = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39c1.45.79 3.08 1.21 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.9 14.1c-.25.7-1.45 1.35-2 1.44-.53.09-1.16.13-1.87-.12-.43-.15-.98-.33-1.69-.64-2.98-1.29-4.92-4.3-5.07-4.5-.15-.2-1.22-1.62-1.22-3.09 0-1.47.77-2.19 1.05-2.49.27-.3.6-.37.8-.37.2 0 .4 0 .58.01.19.01.44-.07.68.53.25.6.85 2.08.92 2.23.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.31-.13.61.17.3.76 1.28 1.64 2.07 1.13 1.02 2.08 1.34 2.38 1.49.3.15.48.13.66-.08.18-.2.76-.89.96-1.19.2-.3.4-.25.68-.15.27.1 1.75.85 2.05 1 .3.15.5.23.58.35.07.13.07.75-.18 1.45z"/></svg>`;
 
@@ -223,7 +223,7 @@ function setupNavToggle() {
 /* ================= INIT ================= */
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("heroPhoto").src = makePlantArt({
-    name: "Gurudatta Nursery",
+    name: "Shivneri Nursery",
     category: "outdoor",
   });
   document.getElementById("headerWhatsapp").href = whatsappLink();
