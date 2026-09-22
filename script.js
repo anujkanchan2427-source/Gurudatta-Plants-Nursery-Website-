@@ -81,7 +81,7 @@ function makePlantArt(plant) {
   const shortLabel = label.length > 18 ? label.split(" ").slice(0, 2).join(" ") : label;
   const palette = {
     indoor: ["#edf7d6", "#4da421", "#244b3f"],
-    flowering: ["#f7ead9", "#d6bd2f", "#d03118"],
+    flowering: ["#bfcdce", "#d6bd2f", "#d03118"],
     outdoor: ["#dfeee0", "#5b8d58", "#2e4336"],
     fruit: ["#f7f1d5", "#d59921", "#ae2c60"],
     succulent: ["#eaf6d7", "#8db66a", "#2d4c3d"],
@@ -91,25 +91,18 @@ function makePlantArt(plant) {
 
   const svg = `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
-      <defs>
-        <linearGradient id="bg${plant.name}" x1="0" x2="1" y1="0" y2="1">
-          <stop offset="0%" stop-color="${bg}"/>
-          <stop offset="100%" stop-color="#f6f0de"/>
-        </linearGradient>
-      </defs>
-      <rect width="800" height="600" fill="url(#bg${plant.name})"/>
-      <ellipse cx="420" cy="470" rx="250" ry="65" fill="rgba(183, 194, 185, 0.12)"/>
-      <circle cx="650" cy="120" r="52" fill="#d3ab3d" opacity="0.8"/>
-      <path d="M402 456 C332 382, 285 302, 287 228 C290 166, 338 120, 392 120 C457 120, 513 161, 520 231 C527 330, 469 389, 402 456 Z" fill="${leaf}" opacity="0.96"/>
-      <path d="M463 182 C500 210, 544 252, 552 314 C517 292, 477 286, 432 290 C416 252, 431 214, 463 182 Z" fill="${dark}" opacity="0.22"/>
-      <path d="M344 182 C314 216, 278 246, 246 282 C280 280, 322 278, 366 290 C376 249, 365 212, 344 182 Z" fill="${dark}" opacity="0.18"/>
-      <path d="M307 275 C330 259, 362 248, 405 247" stroke="${leaf}" stroke-width="18" fill="none" stroke-linecap="round"/>
-      <path d="M409 248 C441 224, 469 197, 493 172" stroke="${leaf}" stroke-width="18" fill="none" stroke-linecap="round"/>
-      <path d="M394 168 C403 120, 426 95, 448 78" stroke="${dark}" stroke-width="14" fill="none" stroke-linecap="round"/>
-      <path d="M390 170 C356 138, 327 111, 302 86" stroke="${dark}" stroke-width="12" fill="none" stroke-linecap="round"/>
-      <path d="M390 168 C438 140, 484 122, 530 120" stroke="${dark}" stroke-width="12" fill="none" stroke-linecap="round"/>
-      <rect x="90" y="430" width="620" height="88" rx="18" fill="rgba(35,61,40,0.10)"/>
-      <text x="400" y="488" text-anchor="middle" font-size="34" font-family="Arial, sans-serif" font-weight="700" fill="${dark}">${shortLabel}</text>
+      <rect width="800" height="600" fill="#ffffff"/>
+      <path d="M400 430 C400 330 400 220 400 120" stroke="${dark}" stroke-width="14" stroke-linecap="round"/>
+      <path d="M400 260 C340 180 250 165 190 215 C270 290 340 300 400 260 Z" fill="${leaf}"/>
+      <path d="M400 205 C465 120 560 115 625 175 C540 250 465 255 400 205 Z" fill="${leaf}"/>
+      <path d="M400 345 C330 285 250 300 205 360 C285 410 350 400 400 345 Z" fill="${leaf}"/>
+      <path d="M400 315 C475 250 555 270 605 335 C520 390 460 385 400 315 Z" fill="${leaf}"/>
+      <path d="M400 120 C365 72 305 62 265 94 C315 145 360 155 400 120 Z" fill="${leaf}"/>
+      <path d="M400 135 C445 75 505 65 550 100 C500 150 450 160 400 135 Z" fill="${leaf}"/>
+      <path d="M400 258 L270 215 M400 205 L535 170 M400 345 L275 350 M400 315 L535 330" stroke="${dark}" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+      <path d="M300 425 L500 425 L470 535 L330 535 Z" fill="#c87942"/>
+      <path d="M285 415 L515 415 L500 450 L300 450 Z" fill="#a85a31"/>
+      <text x="400" y="575" text-anchor="middle" font-size="28" font-family="Arial, sans-serif" font-weight="700" fill="${dark}">${shortLabel}</text>
     </svg>
   `;
   return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
