@@ -1,4 +1,4 @@
-# Gurudatta Nursery — Website Files
+# Shivneri Nursery — Website Files
 
 Four files/folders:
 - `index.html` — page structure
